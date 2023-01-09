@@ -1,21 +1,19 @@
 package transport;
-public class Bus extends Transport implements Competitor {
-    public Bus() {
+
+public class Truck extends Transport implements Competitor {
+    public Truck() {
         super("", "", 0);
     }
-    public Bus(String brand, String model, double engineVolume) {
+    public Truck(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
     @Override
     public void startMoving() {
-        System.out.println("The bus is starting to move.");
+        System.out.println("The truck is starting to move.");
     }
     @Override
     public void stopMoving() {
-        System.out.println("The bus is stopping.");
-    }
-    public String toString() {
-        return "Brand: " + getBrand() + ", " + "Model: " + getModel() + ", " + "Engine Volume: " + getEngineVolume();
+        System.out.println("The truck is stopping.");
     }
     @Override
     public void pitStop() {
@@ -28,5 +26,8 @@ public class Bus extends Transport implements Competitor {
     @Override
     public void getMaximumSpeed() {
         System.out.println("Maximum car speed is: ");
+    }
+    public String toString() {
+        return "Brand: " + getBrand() + ", " + "Model: " + getModel() + ", " + "Engine Volume: " + getEngineVolume();
     }
 }

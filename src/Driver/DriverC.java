@@ -1,47 +1,10 @@
 package Driver;
 
-import transport.Competitor;
-import transport.Transport;
+import transport.Truck;
 
-public class DriverC<T extends Transport & Competitor> extends Driver{
-    public DriverC (){
-        super("", true, 0);
-    }
-    public DriverC(String fullName, boolean driversLicence, int drivingExperience){
-        super(fullName,driversLicence,drivingExperience);
-    }
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+public class DriverC extends Driver<Truck> {
 
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
+    public DriverC(String fullName,  int drivingExperience, Truck car) {
+        super(fullName, "C", drivingExperience, car);
     }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    public void drive(T transport) {
-        System.out.println("The driver: " + getFullName() + " is driving the vehicle: " + transport.getBrand() + " " +
-                transport.getModel() + " and will participate in the race");
-    }
-    @Override
-    public void startMoving() {
-        System.out.println("Driver with 'C' category driving licence is starting to move");
-    }
-
-    @Override
-    public void stopMoving() {
-        System.out.println("Driver with 'C' category driving licence is stopping");
-    }
-
-    @Override
-    public void refuelTheVehicle() {
-        System.out.println("Driver with 'C' category driving licence is refuelling a vehicle");
-    }
-
 }

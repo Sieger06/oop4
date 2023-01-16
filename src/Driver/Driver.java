@@ -1,12 +1,17 @@
 package Driver;
 
+import transport.Transport;
+
 import java.util.Objects;
 
-public abstract class Driver {
+public abstract class Driver <T extends Transport> {
     private String fullName;
-    private boolean driversLicence;
+    private String driversLicence;
     private int drivingExperience;
-    public Driver (String fullName, boolean driversLicence, int drivingExperience){
+    private T car;
+
+    public Driver (String fullName, String driversLicence, int drivingExperience, T car){
+        this.car = car;
         if(fullName == null || fullName.isEmpty()){
             this.fullName = "Ivanov Ivan Ivanovich";
         }else {
@@ -30,11 +35,11 @@ public abstract class Driver {
         }
     }
 
-    public boolean isDriversLicence() {
+    public String isDriversLicence() {
         return driversLicence;
     }
 
-    public void setDriversLicence(boolean driversLicence) {
+    public void setDriversLicence(String driversLicence) {
         this.driversLicence = driversLicence;
     }
 
@@ -49,13 +54,32 @@ public abstract class Driver {
             this.drivingExperience = drivingExperience;
         }
     }
-    public String toString(){
+    /*public String toString(){
         return "Driver's name: " + fullName + ", drivers license: " + driversLicence + ", with driving experience of : " + drivingExperience + " years";
-    }
+    }*/
     public int hashCode() {
         return Objects.hash(fullName, driversLicence, drivingExperience);
     }
-    public abstract void startMoving();
-    public abstract void stopMoving();
-    public abstract void refuelTheVehicle();
+
+    public void startMoving() {
+        System.out.printf("Водитель %s начал двигаться", this.fullName);
+        this.car.startMoving();
+    }
+
+    public void stopMoving() {
+        System.out.printf("Водитель %s закончил движение", this.fullName);
+        this.car.stopMoving();
+    }
+
+    public void refuelTheVehicle() {
+        System.out.printf("Driver %s refuel the vehicle  %s %s",
+                this.fullName, this.car.getBrand(), this.car.getModel());
+    }
+    @Override
+    public String toString() {
+        return String.format(
+                "The driver: %s is driving the vehicle: %s %s and will participate in the race",
+                this.fullName, this.car.getBrand(), this.car.getModel());
+    }
+
 }

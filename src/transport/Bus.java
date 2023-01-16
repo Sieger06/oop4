@@ -29,4 +29,5 @@ public class Bus extends Transport implements Competitor {
     public void getMaximumSpeed() {
         System.out.println("Maximum car speed is: ");
     }
+
 }

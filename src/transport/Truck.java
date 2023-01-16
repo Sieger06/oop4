@@ -27,6 +27,11 @@ public class Truck extends Transport implements Competitor {
     public void getMaximumSpeed() {
         System.out.println("Maximum car speed is: ");
     }
+//   @Override
+//    public void startMoving() {
+//        System.out.println("Driver with 'C' category driving licence is starting to move");
+//    }
+
     public String toString() {
         return "Brand: " + getBrand() + ", " + "Model: " + getModel() + ", " + "Engine Volume: " + getEngineVolume();
     }

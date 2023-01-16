@@ -52,7 +52,7 @@ public class Main {
         System.out.println(volvo);
         System.out.println(scaniaTruck);
         System.out.println(thor);
-        thor.startMoving();/*Truck*/
+        thor.startMoving();
         thor.stopMoving();
         thor.pitStop();
         thor.getBestLapTime();
@@ -60,10 +60,11 @@ public class Main {
         System.out.println(Freightliner);
         System.out.println();
 
-
-        DriverB driverB = new DriverB("Aleksey Andreevich Semenov", 10, bmwZ8);
-        DriverC driverC = new DriverC("Andrej Alekseevich Mihailov", 11, thor);
-        DriverD driverD = new DriverD("Sergey Aleksandrovich Skvortcov", 12, mercerdes);
-
+        DriverD<Bus> ilja = new DriverD<Bus>("Aleksei Andreevich Semenov", true, 12);
+        ilja.drive(mercerdes);
+        DriverB<Car> andrej = new DriverB<Car>("Andrej Alekseevich Mihailov", true, 11);
+        andrej.drive(bmwZ8);
+        DriverC<Truck> sergej = new DriverC<Truck>("Sergej Aleksandrovich Skvortcov", true, 10);
+        sergej.drive(thor);
     }
 }
